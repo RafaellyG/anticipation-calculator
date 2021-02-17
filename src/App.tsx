@@ -1,8 +1,8 @@
-import './App.css';
+import Calculator from "features/Calculator"
 
-function App() {
+const App = () => {
   return (
-    <div/>
+      <Calculator/>
   );
 }
 
