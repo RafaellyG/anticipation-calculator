@@ -2,17 +2,13 @@ import React from 'react';
 
 import { CurrencyInfoType } from 'types/components';
 import { Text, Bold, Container } from './style';
+import { currencyFormat, labelFormatter } from './utils';
 
-const CurrencyInfo = ({ label, value }: CurrencyInfoType) => {
-  const format = { minimumFractionDigits: 2 , style: 'currency', currency: 'BRL' };
-
-  const currencyFormat = (value?: number) => {
-    return value?.toLocaleString('pt-BR', format);
-  }
+const CurrencyInfo = ({ days, value }: CurrencyInfoType) => {
 
   return (
-    <Container>
-      <Text>{label}: <Bold>{currencyFormat(value)}</Bold></Text>
+    <Container data-testid={`currency-info`}>
+      <Text>{labelFormatter(days)}: <Bold>{currencyFormat(value)}</Bold></Text>
     </Container>
   );
 }

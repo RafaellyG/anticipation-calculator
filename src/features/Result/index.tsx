@@ -13,10 +13,6 @@ type ResultType = {
 
 const Result = ({ resultData, isLoading }: ResultType) => {
 
-  const labelFormatter = (days: number) => {
-    return days > 1 ? `Em ${days} dias` : 'Amanhã'
-  }
-
   return (
     <Container>
       <Items>
@@ -25,7 +21,7 @@ const Result = ({ resultData, isLoading }: ResultType) => {
           return (
             <CurrencyInfo
               key={result.days}
-              label={labelFormatter(result.days)}
+              days={result.days}
               value={result.value} />
           )
         })

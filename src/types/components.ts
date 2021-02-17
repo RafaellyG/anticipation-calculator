@@ -17,6 +17,6 @@ export type TitleType = {
 };
 
 export type CurrencyInfoType = {
-  label: string;
   value: number;
+  days: number;
 };
