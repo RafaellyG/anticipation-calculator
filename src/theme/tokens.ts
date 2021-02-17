@@ -9,10 +9,10 @@ const tokens = {
   colorSecondary: "#5D9CEC",
   colorSecondaryLight: "#66AFE9",
   colorSecondaryDark: "#3D75BB",
-  colorSupportError: "#d4716a",
+  colorSupportError: "#D4716A",
   colorOpacity: "rgba(0,0,0,0.5)",
-  colorNeutralLight: "#ffffff",
-  colorNeutralMedium: "#999e9c",
+  colorNeutralLight: "#FFFFFF",
+  colorNeutralMedium: "#D1DCE3",
   colorNeutralDark: "#000000",
 
   colorOpacityPrimary: "rgba(209, 220, 227, 0.18)",
@@ -34,13 +34,18 @@ const tokens = {
   lineHeightSmall: "14px",
 
   spacingBottomLarge: "32px",
-  spacingBottomMedium: "28px",
+  spacingBottomMedium: "25px",
   spacingBottomSmall: "4px",
 
   spacingLarge: "35px",
   spacingMedium: "30px",
   spacingSmall: "20px",
   spacingxSmall: "10px",
+
+  spacingInlineLarge: "56px",
+  spacingInlineMedium: "24px",
+
+  mobileBreakpoint: "600px"
 };
 
 export default tokens;
