@@ -7,21 +7,30 @@ import Subtitle from "components/Subtitle";
 import { ResultDataType } from "types/data";
 
 type ResultType = {
-  resultData: ResultDataType;
+  resultData: ResultDataType[];
   isLoading: boolean;
 }
 
-const Result = ({resultData, isLoading}: ResultType) => {
+const Result = ({ resultData, isLoading }: ResultType) => {
+
+  const labelFormatter = (days: number) => {
+    return days > 1 ? `Em ${days} dias` : 'Amanhã'
+  }
 
   return (
     <Container>
       <Items>
         <Subtitle text="Você Receberá:" />
-        <CurrencyInfo label="Amanhã" value={resultData.tomorrow}/>
-        <CurrencyInfo label="Em 15 dias" value={resultData.fifteenDays}/>
-        <CurrencyInfo label="Em 30 dias" value={resultData.thirtyDays}/>
-        <CurrencyInfo label="Em 90 dias" value={resultData.ninetyDays}/>
-        {isLoading && <Loading/>}
+        {resultData.map(result => {
+          return (
+            <CurrencyInfo
+              key={result.days}
+              label={labelFormatter(result.days)}
+              value={result.value} />
+          )
+        })
+        }
+        {isLoading && <Loading />}
       </Items>
     </Container>
   );

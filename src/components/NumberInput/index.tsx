@@ -5,9 +5,11 @@ import CurrencyInput from 'react-currency-input-field';
 
 const NumberInput = ({ label, help, currency, maxValue, maxLength, onChange}: NumberInputType) => {
 
+  const intlConfig = currency ? { locale: 'pt-BR', currency: 'BRL' } : undefined;
+
   const onValueChange = (value: string | undefined) => {
-    const numberValue = Number(value?.replace(',','.'));
-    onChange(numberValue);
+    const numberValue =  Number(value?.replace(',','.'));
+    onChange(isNaN(numberValue) ? undefined : numberValue);
   }
 
   return (
@@ -20,7 +22,7 @@ const NumberInput = ({ label, help, currency, maxValue, maxLength, onChange}: Nu
           decimalsLimit={2}
           maxLength={maxLength}
           onValueChange={(value) => onValueChange(value)}
-          intlConfig= { currency ? { locale: 'pt-BR', currency: 'BRL' } : undefined} 
+          intlConfig= {intlConfig} 
         />
       </InputContainer>
 

@@ -1,4 +1,4 @@
-import { EntryDataType, ResultDataType, ResponseDataType } from "types/data";
+import { EntryDataType, ResultDataType } from "types/data";
 import { handleResponse } from "./errorHandling";
 
 const api = 'https://hash-front-test.herokuapp.com/';
@@ -11,16 +11,19 @@ const generateRequestOptions = (entryData: EntryDataType) => {
   };
 };
 
-const serializeData = (data: ResponseDataType) => {
-  return {
-    tomorrow: data['1'],
-    fifteenDays: data['15'],
-    thirtyDays: data['30'],
-    ninetyDays: data['90'],
-  }
+const serializeData = (data: any): ResultDataType[] => {
+  const result: ResultDataType[]  = [];
+  
+  Object.keys(data).forEach(key => {
+    result.push({
+      days: Number(key),
+      value: Number(data[key])
+    });
+  });
+  return result;
 }
 
-export const getAnticipation = async (entryData: EntryDataType): Promise<ResultDataType> => {
+export const getAnticipation = async (entryData: EntryDataType): Promise<ResultDataType[]> => {
 
   const requestOptions = generateRequestOptions(entryData);
   const response = await

@@ -10,17 +10,11 @@ import { EntryDataType, ResultDataType } from 'types/data';
 
 const Calculator = () => {
 
-  const emptyResult = {
-    tomorrow: 0,
-    fifteenDays: 0,
-    thirtyDays: 0,
-    ninetyDays: 0
-  };
   const errorTimeout = 5000;
 
   const [errorMessage, setErrorMessage] = useState<string>('');
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [result, setResult] = useState<ResultDataType>(emptyResult);
+  const [result, setResult] = useState<ResultDataType[]>([]);
 
   const handleError = (error: Error) => {
     setErrorMessage(error.message);
@@ -29,7 +23,7 @@ const Calculator = () => {
       setErrorMessage('');
     }, errorTimeout);
 
-    setResult(emptyResult);
+    setResult([]);
   }
 
   const fetchAnticipation = async (entryData: EntryDataType) => {
@@ -44,7 +38,7 @@ const Calculator = () => {
   };
 
   const clearResult = () => {
-    setResult(emptyResult);
+    setResult([]);
   };
 
   return (
