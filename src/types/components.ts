@@ -4,7 +4,7 @@ export type NumberInputType = {
   currency?: boolean;
   maxValue?: number;
   maxLength?: number;
-  onChange?: (event: any) => void;
+  onChange: (value: number | undefined) => void;
 };
 
 export type ErrorMessageType = {
