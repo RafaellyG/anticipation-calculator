@@ -2,7 +2,7 @@ import { Container } from './style';
 
 const Loading = () => {
   return (
-    <Container>
+    <Container data-testid="loading">
       <svg version="1.1" id="L4" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
         viewBox="0 0 100 100" enableBackground="new 0 0 0 0">
         <circle fill="#5D9CEC" stroke="none" cx="6" cy="10" r="6">
