@@ -4,7 +4,7 @@ import { ErrorMessageType } from 'types/components';
 const ErrorMessage = ({ message, isVisible }: ErrorMessageType) => {
 
   return (
-    <ErrorToast isVisible={isVisible}>
+    <ErrorToast data-testid="error-message" isVisible={isVisible}>
       <Message>{message}</Message>
     </ErrorToast>
   );

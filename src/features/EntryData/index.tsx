@@ -31,19 +31,22 @@ const EntryData = ({fetchResult, clearResult}: fetchResultProps) => {
     <Container>
       <Title text="Simule sua Antecipação"/>
       
-      <NumberInput  
+      <NumberInput
+        name="amount"
         onChange={value => setAmount(value)}
         label="Informe o valor da venda"
         maxLength={8}
         currency/>
       
       <NumberInput
+        name="installments"
         onChange={value => setInstallments(value)}
         label="Em quantas parcelas"
         help="Máximo de 12 parcelas"
         maxLength={2}/>
 
-      <NumberInput 
+      <NumberInput
+        name="mdr"
         onChange={value => setMdr(value)}
         label="Informe o percentual de MDR"
         maxLength={4}

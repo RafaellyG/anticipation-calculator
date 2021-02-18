@@ -1,4 +1,5 @@
 export type NumberInputType = {
+  name: string;
   label: string;
   help?: string;
   currency?: boolean;

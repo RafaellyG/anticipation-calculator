@@ -1,4 +1,4 @@
-const errors =
+export const errors =
 {
   500: 'Oh não, parece que nosso serviço está fora do ar no momento.',
   408: 'Ops! O serviço está demorando muito para responder, tente novamente mais tarde.',

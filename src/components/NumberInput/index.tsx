@@ -3,7 +3,7 @@ import { InputContainer, Label, Help, Container } from './style';
 
 import CurrencyInput from 'react-currency-input-field';
 
-const NumberInput = ({ label, help, currency, maxValue, maxLength, onChange}: NumberInputType) => {
+const NumberInput = ({ name, label, help, currency, maxValue, maxLength, onChange}: NumberInputType) => {
 
   const intlConfig = currency ? { locale: 'pt-BR', currency: 'BRL' } : undefined;
 
@@ -17,6 +17,8 @@ const NumberInput = ({ label, help, currency, maxValue, maxLength, onChange}: Nu
       <Label>{label} *</Label>
       <InputContainer hasHelp={!!help}>
         <CurrencyInput
+          name={name}
+          data-testid="number-input"
           allowNegativeValue={false}
           max={maxValue}
           decimalsLimit={2}
